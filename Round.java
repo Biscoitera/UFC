@@ -68,7 +68,7 @@ public class Round {
         
         if(acao1.soco == 1 && acao2.defesa == 0 ){
             if(acao2.chute == 1){
-                return 2;
+                return 1;
             }
             else return -1;
         }

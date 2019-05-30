@@ -11,11 +11,11 @@ public class Acao {
 
     public Acao(String ataque,String soco,String chute,String defesa,String poder,String modalidade){
 
-        this.ataque = Integer.parseInt(ataque);
-        this.chute = Integer.parseInt(chute);
-        this.soco = Integer.parseInt(soco);
-        this.defesa = Integer.parseInt(defesa);
-        this.poder = Integer.parseInt(poder);
+        this.ataque =     Integer.parseInt(ataque);
+        this.chute =      Integer.parseInt(chute);
+        this.soco =       Integer.parseInt(soco);
+        this.defesa =     Integer.parseInt(defesa);
+        this.poder =      Integer.parseInt(poder);
         this.modalidade = Integer.parseInt(modalidade);  
     }
     

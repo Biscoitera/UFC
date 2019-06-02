@@ -1,13 +1,20 @@
-
-package trabalhoparte2;
-
 import java.util.ArrayList;
 
+import javax.persistence.*;
 
+@Entity
+@Table (name = "luta")
 public class Luta {
     
     ArrayList<Round> rounds;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
+    
+    @Column
+    int ano;
+    
+    
     Lutador lutador1;
     Lutador lutador2;
     
@@ -16,7 +23,7 @@ public class Luta {
         this.id = Integer.parseInt(id);
         this.lutador1 = l1;
         this.lutador2 = l2;
-        System.out.println("Luta " + id + ": " + lutador1.getNome() + " VS " + lutador2.getNome());
+        System.out.println("Luta " + id + ": " + lutador1.nome + " VS " + lutador2.nome);
     }
     
     public void addRound(Round round){
@@ -32,8 +39,8 @@ public class Luta {
             res += rounds.get(i).resultado();
         }
         if(res < 0){
-            return ("Vencedor: " + lutador1.getNome());
+            return ("Vencedor: " + lutador1.nome);
         }
-        else return("Vencedor: " + lutador2.getNome());
+        else return ("Vencedor: " + lutador2.nome);
     }
 }

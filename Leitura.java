@@ -1,6 +1,3 @@
-
-package trabalhoparte2;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
@@ -23,10 +20,11 @@ public class Leitura{
         file = new File("src/" + liga);
         try {
             scan = new Scanner(file);
-            lerArquivo();
         } catch (FileNotFoundException ex) {
             System.out.println("Colocar exceção aqui");
         }
+        
+        lerArquivo();
         
         scan.close();
     }
@@ -49,7 +47,7 @@ public class Leitura{
     public void procedeLuta(){
         
         acao1 = new Acao(split[7], split[8], split[9], split[10], split[11], split[12]);
-        acao2 = new Acao(split[17],split[18],split[19],split[20], split[21], split[22]);
+        acao2 = new Acao(split[17], split[18], split[19], split[20], split[21], split[22]);
         round = new Round(split[1], acao1, acao2);
         luta.addRound(round);
     }

@@ -1,7 +1,3 @@
-
-package trabalhoparte2;
-
-
 public class Round {
     
     int id;
@@ -68,7 +64,7 @@ public class Round {
         
         if(acao1.soco == 1 && acao2.defesa == 0 ){
             if(acao2.chute == 1){
-                return 1;
+                return 2;
             }
             else return -1;
         }

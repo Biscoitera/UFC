@@ -1,11 +1,14 @@
+package trabalhoparte2;
 public class Acao {
 
-    public int ataque;
-    public int soco;
-    public int chute;
-    public int defesa;
-    public int poder;
-    public int modalidade;
+    private int ataque;
+    private int soco;
+    private int chute;
+    private int defesa;
+    private int poder;
+    private int modalidade;
+    
+    private String id;
 
     public Acao(String ataque,String soco,String chute,String defesa,String poder,String modalidade){
 
@@ -14,28 +17,83 @@ public class Acao {
         this.soco = Integer.parseInt(soco);
         this.defesa = Integer.parseInt(defesa);
         this.poder = Integer.parseInt(poder);
-        this.modalidade = Integer.parseInt(modalidade);  
-    }
-    
-    public void printAcao(){
+        this.modalidade = Integer.parseInt(modalidade);
         
-        if(ataque != 0){
-            if(soco != 0){
-                System.out.println("Soco!");
+        if(this.ataque != 0){
+            if(this.soco != 0){
+                this.id = ("Soco");
             }
-            if(chute != 0){
-                System.out.println("Chute!");
+            if(this.chute != 0){
+                this.id = ("Chute");
             }
         }
         else{
-            if(defesa != 0){
-                System.out.println("Defesa!");
+            if(this.defesa != 0){
+                this.id = ("Defesa");
             }
         
-            if(poder != poder){
-                System.out.println("Poder");
+            if(this.poder != 0){
+                this.id = ("Poder");
             }
         }
-    }    
+    }
+
+    public int getAtaque() {
+        return ataque;
+    }
+
+    public void setAtaque(int ataque) {
+        this.ataque = ataque;
+    }
+
+    public int getSoco() {
+        return soco;
+    }
+
+    public void setSoco(int soco) {
+        this.soco = soco;
+    }
+
+    public int getChute() {
+        return chute;
+    }
+
+    public void setChute(int chute) {
+        this.chute = chute;
+    }
+
+    public int getDefesa() {
+        return defesa;
+    }
+
+    public void setDefesa(int defesa) {
+        this.defesa = defesa;
+    }
+
+    public int getPoder() {
+        return poder;
+    }
+
+    public void setPoder(int poder) {
+        this.poder = poder;
+    }
+
+    public int getModalidade() {
+        return modalidade;
+    }
+
+    public void setModalidade(int modalidade) {
+        this.modalidade = modalidade;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+    
+    
 }
 

@@ -1,8 +1,9 @@
+package trabalhoparte2;
 
 public class UFC {
     public static void main(String[] args){
     
-        new Leitura("liga2010.txt"); 
+        new Liga("liga2010.txt"); 
     }
     
 }

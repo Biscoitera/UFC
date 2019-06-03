@@ -1,35 +1,50 @@
+package trabalhoparte2;
+
+import javax.persistence.*;
+
+@Entity
+@Table (name = "round")
 public class Round {
     
+    @Id
     int id;
+    
     Acao acao1;
+    @Column (name = "acao1")
+    String tpoAcao1;
     Acao acao2;
+    @Column (name = "acao2")
+    String tpoAcao2;
     
     public Round(String id, Acao acao1, Acao acao2){
         
         this.id = Integer.parseInt(id);
         this.acao1 = acao1;
+        this.tpoAcao1 = acao1.getId();
         this.acao2 = acao2;
+        this.tpoAcao2 = acao2.getId();
+        //Query query = session.createQuery("insert into round (this.id, tpoAcao1, tposAcao2) select * from Round");
     }
     
     public int resultado(){
         
-        if(acao1.defesa == 1 || acao2.defesa == 1){
+        if(acao1.getDefesa() == 1 || acao2.getDefesa() == 1){
             return 0;
         }
         
-        if(acao1.poder == 1 && acao2.poder == 0 ){
+        if(acao1.getPoder() == 1 && acao2.getPoder() == 0 ){
             return -1;
         }
-        if(acao2.poder == 1 && acao1.poder == 0 ){
+        if(acao2.getPoder() == 1 && acao1.getPoder() == 0 ){
             return 1;
         }
         
-        if(acao1.poder == 1 && acao2.poder == 1){
+        if(acao1.getPoder() == 1 && acao2.getPoder() == 1){
             
-            if(acao1.modalidade > acao2.modalidade){
+            if(acao1.getModalidade() > acao2.getModalidade()){
                 return -1;
             }
-            if(acao1.modalidade < acao2.modalidade){
+            if(acao1.getModalidade() < acao2.getModalidade()){
                 return 1;
             }
             else{
@@ -38,12 +53,12 @@ public class Round {
         }
         
         
-        if(acao1.soco == 1 && acao2.soco == 1){
+        if(acao1.getSoco() == 1 && acao2.getSoco() == 1){
             
-            if(acao1.modalidade > acao2.modalidade){
+            if(acao1.getModalidade() > acao2.getModalidade()){
                 return -1;
             }
-            if(acao1.modalidade < acao2.modalidade){
+            if(acao1.getModalidade() < acao2.getModalidade()){
                 return 1;
             }
             else{
@@ -51,28 +66,28 @@ public class Round {
             }
         }
         
-        if(acao1.chute == 1 && acao2.chute == 1){
+        if(acao1.getChute() == 1 && acao2.getChute() == 1){
             
-            if(acao1.modalidade > acao2.modalidade){
+            if(acao1.getModalidade() > acao2.getModalidade()){
                 return -1;
             }
-            if(acao1.modalidade < acao2.modalidade){
+            if(acao1.getModalidade() < acao2.getModalidade()){
                 return 1;
             }
             else return 0;
         }
         
-        if(acao1.soco == 1 && acao2.defesa == 0 ){
-            if(acao2.chute == 1){
+        if(acao1.getSoco() == 1 && acao2.getDefesa() == 0 ){
+            if(acao2.getChute() == 1){
                 return 2;
             }
             else return -1;
         }
         
-        if(acao1.chute == 1 && acao2.defesa == 0){
+        if(acao1.getChute() == 1 && acao2.getDefesa() == 0){
             return -1;
         }
-        if(acao2.chute == 1 && acao1.defesa == 0){
+        if(acao2.getChute() == 1 && acao1.getDefesa() == 0){
             return 2;
         }
         return 0;

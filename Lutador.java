@@ -1,28 +1,34 @@
+package trabalhoparte2;
 import javax.persistence.*;
 @Entity
 @Table (name = "lutador")
 
 public class Lutador {
 	
-	@Id
+    @Id
     String nome;
 	
-	@Column
+    @Column
     String categoria;
 	
-	@Column
+    @Column
     String pais;
 	
-	@Column
+    @Column
     String sexo;
     
+    //@ManyToMany
     
+    //JoinColumn (name = "Luta")
     public Lutador(String nome, String categoria, String pais, String sexo){
         
         this.nome = nome;
         this.categoria = categoria;
         this.pais = pais;
         this.sexo = sexo;
+        //Query query = session.createQuery("insert into Lutador (nome, categoria, pais, sexo) select * from Lutador");
     }
+    
+    
 }
 

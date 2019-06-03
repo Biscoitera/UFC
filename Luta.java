@@ -1,5 +1,6 @@
-import java.util.ArrayList;
+package trabalhoparte2;
 
+import java.util.ArrayList;
 import javax.persistence.*;
 
 @Entity
@@ -14,6 +15,7 @@ public class Luta {
     @Column
     int ano;
     
+    //@ManyToMany
     
     Lutador lutador1;
     Lutador lutador2;
@@ -43,4 +45,5 @@ public class Luta {
         }
         else return ("Vencedor: " + lutador2.nome);
     }
+    
 }

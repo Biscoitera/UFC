@@ -1,0 +1,30 @@
+Select
+Query query = session.createQuery("from Lutador where nome = 'Daniel'");
+List list = query.list();
+
+
+Insert
+Query query = session.createQuery("insert into Lutador (nome, categoria,pais, sexo) select l.nome,l.categoria,l.pais,l.sexo from Lutador l");
+
+
+Round
+ano;idRound;idLuta;nomeLutador1;acao1;modalidade1;nomeLutador2;acao2;modalidade2
+
+
+#!/bin/bash
+
+read -r -p "Entre com a palavra: " palavra  
+
+search=$( wget -q http://victor.localhost -O - | grep "$palavra")
+
+if [ -n "$search" ]; then
+
+    echo "Sim"
+
+else
+
+    echo "Nao"
+
+fi
+
+ 

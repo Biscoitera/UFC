@@ -20,6 +20,8 @@ public class Liga{
     Luta luta;
     Round round;
     
+    int apagar;
+    
     public Liga(String liga){
         file = new File("src/" + liga);
         try {

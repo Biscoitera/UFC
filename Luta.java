@@ -1,31 +1,29 @@
-package trabalhoparte2;
+
 
 import java.util.ArrayList;
-import javax.persistence.*;
 
-@Entity
-@Table (name = "luta")
+
 public class Luta {
     
     ArrayList<Round> rounds;
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    
     int id;
     
-    @Column
     int ano;
-    
-    //@ManyToMany
     
     Lutador lutador1;
     Lutador lutador2;
     
-    public Luta(String id, Lutador l1, Lutador l2){
+    String vencedor;
+    
+    public Luta(String id, Lutador l1, Lutador l2) throws Exception{
         rounds = new ArrayList<>();
         this.id = Integer.parseInt(id);
         this.lutador1 = l1;
         this.lutador2 = l2;
         System.out.println("Luta " + id + ": " + lutador1.nome + " VS " + lutador2.nome);
+        vencedor = resultado();
+        LutaDAO.inserir(this);
     }
     
     public void addRound(Round round){
@@ -41,9 +39,13 @@ public class Luta {
             res += rounds.get(i).resultado();
         }
         if(res < 0){
+            vencedor = lutador1.nome;
             return ("Vencedor: " + lutador1.nome);
         }
-        else return ("Vencedor: " + lutador2.nome);
+        else {
+            vencedor = lutador2.nome;
+            return ("Vencedor: " + lutador2.nome);
+        }
     }
     
 }

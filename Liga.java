@@ -1,4 +1,4 @@
-package trabalhoparte2;
+
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -20,9 +20,9 @@ public class Liga{
     Luta luta;
     Round round;
     
-    int apagar;
+    int ano;
     
-    public Liga(String liga){
+    public Liga(String liga) throws Exception{
         file = new File("src/" + liga);
         try {
             scan = new Scanner(file);
@@ -35,7 +35,7 @@ public class Liga{
         scan.close();
     }
     
-    public void novaLuta(){
+    public void novaLuta() throws Exception{
         
         l1 = new Lutador(split[3], split[4], split[5], split[6]);
         l2 = new Lutador(split[13],split[14],split[15],split[16]);
@@ -59,7 +59,7 @@ public class Liga{
         //Persist Round
     }
     
-    public void lerArquivo(){
+    public void lerArquivo() throws Exception{
         
         linha = scan.nextLine();
         split = linha.split(";");

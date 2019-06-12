@@ -1,4 +1,3 @@
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -8,7 +7,7 @@ import java.sql.Statement;
 /**
  * Classe utilizada para fazer realizar as operações de banco de dados sobre a entity Lutador.
  */
-public class LutadorDAO {
+public class LigaDAO {
     
     static String url="jdbc:oracle:thin:@localhost:1521:XE";
     static String usuario = "root";
@@ -24,20 +23,20 @@ public class LutadorDAO {
         conexao.close();
     }
     
-    public static void inserir(String nome, String pais, String sexo) throws Exception{
-        String sql = "Insert into Lutador values('"+ nome +"','"+ pais +"','"+ sexo +"')";
+    public static void inserir(int ano) throws Exception{
+        String sql = "Insert into Liga values("+ano+")";
         Statement statement = conexao.createStatement();
         statement.execute(sql);
         conexao.commit();
         
     }
     
-    public static void consultar(String nome) throws SQLException{
-        String sql = "Select * from Lutador where nome = "+nome+"";
+    public static void consultar(int ano) throws SQLException{
+        String sql = "Select * from Liga where ano = "+ano+"";
         Statement statement = conexao.createStatement();
         ResultSet rs = statement.executeQuery(sql);
         while(rs.next()){
-            System.out.println("Nome: "+rs.getString(1)+" País: "+rs.getString(2)+" Sexo: "+rs.getString(3));
+            System.out.println("Ano: "+rs.getInt(1));
         }
     }
     
@@ -48,7 +47,7 @@ public class LutadorDAO {
         int contador = 0;
         while(rs.next()){
             contador++;
-            System.out.println("Nome: "+rs.getString(1)+" Pais: "+" Sexo: "+ rs.getString(3));
+            System.out.println("Ano: "+rs.getInt(1));
             
         }
         System.out.println("Registros: "+ contador);
@@ -58,8 +57,8 @@ public class LutadorDAO {
         
     }
     
-    public static void excluir(String nome) throws SQLException{
-        String sql = "Delete from Lutador where nome = "+nome;
+    public static void excluir(int ano) throws SQLException{
+        String sql = "Delete from Liga where ano = "+ano;
         Statement statement = conexao.createStatement();
         statement.executeQuery(sql);
         conexao.commit();

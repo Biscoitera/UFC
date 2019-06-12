@@ -1,5 +1,5 @@
 
-package trabalhoparte2;
+
 
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
 
 public class AcessoBD {
     
-    static String url="jdbc:oracle:thin:VMDADOS:1521/Ora11GDev:XE";
+    static String url="jdbc:oracle:thin:@localhost:1521:XE";
     static String usuario = "MOBILE_COOPERALFA";
     static String senha = "engeman";
     static Connection conexao;
@@ -41,7 +41,7 @@ public class AcessoBD {
         JOptionPane.showMessageDialog(null,fabricanteBD +"<==>"+versaoBD);
     }
     
-    public static void main(String[] args){
+    public static void test(){
         try {
             conectar();
             mostrarInfoBD();

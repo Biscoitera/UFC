@@ -1,4 +1,4 @@
-package trabalhoparte2;
+
 public class Acao {
 
     private int ataque;

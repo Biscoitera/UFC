@@ -1,19 +1,16 @@
-package trabalhoparte2;
 
-import javax.persistence.*;
 
-@Entity
-@Table (name = "round")
+
 public class Round {
     
-    @Id
+    
     int id;
     
     Acao acao1;
-    @Column (name = "acao1")
+    
     String tpoAcao1;
     Acao acao2;
-    @Column (name = "acao2")
+    
     String tpoAcao2;
     
     public Round(String id, Acao acao1, Acao acao2){
